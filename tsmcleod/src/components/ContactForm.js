@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
+import SERVER_URL from "../constants/server"
 
 class ContactForm extends Component {
   constructor(props) {
@@ -36,7 +37,19 @@ class ContactForm extends Component {
       this.setState(
         {
           emailStatus: 0,
-          emailStatusMessage: "Please verify that you are not a robot :)"
+          emailStatusMessage: "Please verify that you are not a robot :)" //TODO: robot emoji
+        },
+        function() {
+          this.props.handleUpdate(this.state);
+        }
+      );
+      return;
+    }
+    if (this.state.comment === "") {
+      this.setState(
+        {
+          emailStatus: 0,
+          emailStatusMessage: "Please add a comment"
         },
         function() {
           this.props.handleUpdate(this.state);
@@ -52,7 +65,7 @@ class ContactForm extends Component {
       captchaVerify
     } = this.state;
     axios
-      .post("http://localhost:3000/server", {
+      .post(SERVER_URL, {
         firstName,
         lastName,
         emailAddress,
@@ -60,6 +73,7 @@ class ContactForm extends Component {
         captchaVerify
       })
       .then(res => {
+        debugger;
         //always need to lift state of email status
         this.setState({ emailStatus: res.status });
 

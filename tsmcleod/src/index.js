@@ -4,6 +4,7 @@ import "tachyons/css/tachyons.css";
 import "./index.css";
 
 import App from "./components/App";
+import register from './serviceWorker';
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
@@ -12,3 +13,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
+register();
+
