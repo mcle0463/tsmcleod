@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Elements, StripeProvider } from "react-stripe-elements";
 import CheckoutForm from "./CheckoutForm";
 import PAYMENT_SERVER_URL from "../constants/server";
-import STRIPE_PUBLISHABLE from "../constants/stripe";
+//import STRIPE_PUBLISHABLE from "../constants/stripe";
 class Home extends Component {
   state = { users: [] };
   /*componentDidMount() {
