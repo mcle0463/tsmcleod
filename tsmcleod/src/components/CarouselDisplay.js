@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import ArtPrint from "./ArtPrint";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import img1 from "../images/furniture/pic1.png";
 import img2 from "../images/furniture/pic2.jpg";
 import img3 from "../images/furniture/pic3.jpg";
@@ -11,159 +14,78 @@ import img9 from "../images/furniture/pic9.jpg";
 import img10 from "../images/furniture/pic10.jpg";
 import img11 from "../images/furniture/pic11.jpg";
 
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-  Container
-} from "reactstrap";
-
-const items = [
-  {
-    src: img1,
-    altText: "Slide 1",
-    caption: "Slide 1"
-  },
-  {
-    src: img2,
-    altText: "Slide 2",
-    caption: "Slide 2"
-  },
-  {
-    src: img3,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img4,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img5,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img6,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img7,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img8,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img9,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img10,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  },
-  {
-    src: img11,
-    altText: "Slide 3",
-    caption: "Slide 3"
-  }
+const images = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11
 ];
 
 class CarouselDisplay extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.goToIndex = this.goToIndex.bind(this);
-    this.onExiting = this.onExiting.bind(this);
-    this.onExited = this.onExited.bind(this);
+    this.state = {
+      photoIndex: 0,
+      isOpen: false
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  onExiting() {
-    this.animating = true;
-  }
-
-  onExited() {
-    this.animating = false;
-  }
-
-  next() {
-    if (this.animating) return;
-    const nextIndex =
-      this.state.activeIndex === items.length - 1
-        ? 0
-        : this.state.activeIndex + 1;
-    this.setState({ activeIndex: nextIndex });
-  }
-
-  previous() {
-    if (this.animating) return;
-    const nextIndex =
-      this.state.activeIndex === 0
-        ? items.length - 1
-        : this.state.activeIndex - 1;
-    this.setState({ activeIndex: nextIndex });
-  }
-
-  goToIndex(newIndex) {
-    if (this.animating) return;
-    this.setState({ activeIndex: newIndex });
+  handleClick(index) {
+    this.setState({
+      photoIndex: index,
+      isOpen: true
+    });
   }
 
   render() {
-    const { activeIndex } = this.state;
-
-    const slides = items.map(item => {
-      return (
-        <CarouselItem
-          onExiting={this.onExiting}
-          onExited={this.onExited}
-          key={item.src}
-        >
-          <img src={item.src} alt={item.altText} />
-          <CarouselCaption
-            captionText={item.caption}
-            captionHeader={item.caption}
-          />
-        </CarouselItem>
-      );
-    });
-
     return (
-      <Container>
-        <Carousel
-          activeIndex={activeIndex}
-          next={this.next}
-          previous={this.previous}
-        >
-          <CarouselIndicators
-            items={items}
-            activeIndex={activeIndex}
-            onClickHandler={this.goToIndex}
+      <div className="flex flex-wrap justify-center mh6-ns" id="fade">
+        {this.state.isOpen && (
+          <Lightbox
+            mainSrc={images[this.state.photoIndex]}
+            nextSrc={images[(this.state.photoIndex + 1) % images.length]}
+            prevSrc={
+              images[
+                (this.state.photoIndex + images.length - 1) % images.length
+              ]
+            }
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex:
+                  (this.state.photoIndex + images.length - 1) % images.length
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (this.state.photoIndex + 1) % images.length
+              })
+            }
           />
-          {slides}
-          <CarouselControl
-            direction="prev"
-            directionText="Previous"
-            onClickHandler={this.previous}
-          />
-          <CarouselControl
-            direction="next"
-            directionText="Next"
-            onClickHandler={this.next}
-          />
-        </Carousel>
-      </Container>
+        )}
+        <ArtPrint src={img1} imgIndex={0} onClick={this.handleClick} />
+        <ArtPrint src={img2} imgIndex={1} onClick={this.handleClick} />
+
+        <ArtPrint src={img3} imgIndex={2} onClick={this.handleClick} />
+        <ArtPrint src={img4} imgIndex={3} onClick={this.handleClick} />
+
+        <ArtPrint src={img5} imgIndex={4} onClick={this.handleClick} />
+        <ArtPrint src={img6} imgIndex={5} onClick={this.handleClick} />
+        <ArtPrint src={img7} imgIndex={6} onClick={this.handleClick} />
+        <ArtPrint src={img8} imgIndex={7} onClick={this.handleClick} />
+
+        <ArtPrint src={img9} imgIndex={8} onClick={this.handleClick} />
+        <ArtPrint src={img10} imgIndex={9} onClick={this.handleClick} />
+        <ArtPrint src={img11} imgIndex={10} onClick={this.handleClick} />
+      </div>
     );
   }
 }

@@ -19,6 +19,7 @@
 .env.production.local
 .vscode
 .code-workspace
+.log
 
 
 npm-debug.log*

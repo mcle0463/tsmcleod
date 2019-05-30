@@ -20,6 +20,7 @@ src/constants/stripe.js
 .env.production.local
 .vscode
 .code-workspace
+.log
 
 npm-debug.log*
 yarn-debug.log*
