@@ -13,6 +13,8 @@ class Home extends Component {
   }*/
 
   render() {
+    console.log(process.env.PUBLIC_URL);
+
     return (
       <div className="flex justify-center pa3 " id="fade">
         <span style={{ height: "500px" }} />
@@ -20,7 +22,8 @@ class Home extends Component {
           <h1>Under Construction :)</h1>
           {/*<Elements>
                <CheckoutForm />
-            </Elements>*/}
+            </Elements>*/
+            }
         </div>
       </div>
     );

@@ -18,11 +18,10 @@ class App extends Component {
         <Header />
         <div>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/furniture" component={Furniture} />
             <Route exact path="/Shop" component={Shop} />
-            <Route exact path="/contact" component={Contact} />
             <Route exact path="/contact" component={Contact} />
           </Switch>
         </div>
