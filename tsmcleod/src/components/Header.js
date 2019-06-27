@@ -14,37 +14,37 @@ class Header extends Component {
         </div>
 
         <div className="flex flex-wrap w-50 pa3">
-          <Link className="link dim black f6 pv1 mh3" to="/">
-            HOME
-          </Link>
+          {/*<Link className="link dim black f6 pv1 mh3" to="/">
+            HO
+          </Link>*/}
           <Link
             className="link dim black f6 dib pv1 mh3"
             to="about"
             title="About"
           >
-            ABOUT
+            About Me
           </Link>
 
           <Link
             className="link dim black f6 dib  pv1 mh3"
-            to="Furniture"
-            title="Store"
+            to="Gallery"
+            title="Gallery"
           >
-            FURNITURE
+            Gallery
           </Link>
           <Link
             className="link dim black f6 dib  pv1 mh3"
             to="Shop"
             title="Store"
           >
-            SHOP
+            Shop
           </Link>
           <Link
             className="link dim black f6 dib pv1 mh3"
             to="Contact"
             title="Contact"
           >
-            CONTACT
+            Contact Me
           </Link>
         </div>
         <input

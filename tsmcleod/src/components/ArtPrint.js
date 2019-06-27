@@ -26,8 +26,6 @@ class ArtPrint extends Component {
             src={value}
           />
           <dl className="mt2 f6 lh-copy">
-            <CartButton imageIndex={this.props.imgIndex} />
-
             <dt className="clip">Title</dt>
             <dd className="ml0">Title</dd>
             <dt className="clip">Artist</dt>

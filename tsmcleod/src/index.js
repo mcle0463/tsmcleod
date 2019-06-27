@@ -6,7 +6,7 @@ import { Route, BrowserRouter } from "react-router-dom";
 
 import App from "./components/App";
 import About from "./components/About";
-import Furniture from "./components/Furniture";
+import Gallery from "./components/Gallery";
 import Shop from "./components/Shop";
 import Contact from "./components/Contact";
 import Header from "./components/Header";
@@ -19,7 +19,7 @@ const routing = (
     <div>
       <Route exact path="/" component={App} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/furniture" component={Furniture} />
+      <Route exact path="/gallery" component={Gallery} />
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/contact" component={Contact} />
     </div>
