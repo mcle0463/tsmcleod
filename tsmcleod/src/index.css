@@ -30,12 +30,155 @@ footer {
   letter-spacing: 0.02em;
 }
 
+.banner-text {
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+}
+
 #fade div {
   animation: fadein 1s;
   -moz-animation: fadein 1s; /* Firefox */
   -webkit-animation: fadein 1s; /* Safari and Chrome */
   -o-animation: fadein 1s; /* Opera */
 }
+
+.menu-item1-flushed {
+  position: absolute;
+  display: block;
+  animation-name: animated_menu_1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.menu-item2-flushed {
+  position: absolute;
+  display: block;
+  animation-name: animated_menu_2;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.menu-item3-flushed {
+  position: absolute;
+  display: block;
+  animation-name: animated_menu_3;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.menu-item4-flushed {
+  position: absolute;
+  display: block;
+  animation-name: animated_menu_4;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.menu-item1-flushed-reverse {
+  position: absolute;
+  display: block;
+  animation-name: animated_menu_1;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+}
+
+.menu-item2-flushed-reverse {
+  position: absolute;
+  display: block;
+  animation-name: animated_menu_2;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+}
+.menu-item3-flushed-reverse {
+  display: block;
+  animation-name: animated_menu_3_reverse;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+}
+.menu-item4-flushed-reverse {
+  display: block;
+  animation-name: animated_menu_4_reverse;
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+}
+
+.menu-items-hidden {
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  margin: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  text-decoration: none;
+  transition: color 0.15s ease-in;
+  display: none;
+  border-radius: 0.25rem;
+}
+@keyframes animated_menu_1 {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(100px, 30px) rotate(60deg);
+  }
+}
+
+@keyframes animated_menu_2 {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(130px, 90px) rotate(60deg);
+  }
+}
+@keyframes animated_menu_3 {
+  100% {
+    transform: translate(110px, 120px) rotate(60deg);
+  }
+}
+@keyframes animated_menu_4 {
+  100% {
+    transform: translate(40px, 140px) rotate(60deg);
+  }
+}
+
+@keyframes animated_menu_1_reverse {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(100px, 30px) rotate(60deg);
+  }
+}
+
+@keyframes animated_menu_2_reverse {
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+@keyframes animated_menu_3_reverse {
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+@keyframes animated_menu_4_reverse {
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
