@@ -35,11 +35,14 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="flex flex-wrap-reverse justify-center" id="fade">
+      <div
+        className="flex flex-wrap-reverse justify-center fr w-100 mt5-ns h-100-ns"
+        id="fade"
+      >
         <ToastContainer />
         <ContactForm handleUpdate={this.onEmailSubmit} />
-        <div className=" w-30-ns pa4">
-          <img src={img} alt="On the job" />
+        <div className=" w-40-ns ph4 pt4">
+          <img src={img} alt="OTJ" />
         </div>
       </div>
     );

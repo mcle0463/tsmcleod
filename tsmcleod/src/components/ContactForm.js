@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
-import SERVER_URL from "../constants/server"
+import SERVER_URL from "../constants/server";
 
 class ContactForm extends Component {
   constructor(props) {
@@ -95,7 +95,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <article className="flex flex-wrap ph4 pb4 black-80 w-30-ns">
+      <article className="flex flex-wrap ph4 pb4 black-80 w-40-ns">
         <form
           // action="sign-up_submit"
           method="post"

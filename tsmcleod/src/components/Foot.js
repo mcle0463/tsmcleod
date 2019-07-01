@@ -2,8 +2,7 @@ import React, { Component } from "react";
 class Foot extends Component {
   render() {
     return (
-      <footer className="pv4 ph3 ph5-m ph6-l mid-gray ">
-        <hr />
+      <footer className="pv4 ph3 mid-gray justify-center w-100 v-btm">
         <small className="f6 db tc">
           © 2018 <b className="ttu">TSMCLEOD</b>, All Rights Reserved
         </small>

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Banner from "./Banner";
 import { withRouter } from "react-router";
+import "../index.css";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
   render() {
     return (
-      <header className="flex flex-wrap header">
-        <div className="w-25 pa3 mr6">
+      <header className="fl w-20 fixed dn db-l">
+        {/* <div className="w-25 pa3 mr6">
           <Link className="link dim black f3 " to="/">
             TSMCLEOD
           </Link>
@@ -16,7 +17,7 @@ class Header extends Component {
         <div className="flex flex-wrap w-50 pa3">
           {/*<Link className="link dim black f6 pv1 mh3" to="/">
             HO
-          </Link>*/}
+          </Link>
           <Link
             className="link dim black f6 dib pv1 mh3"
             to="about"
@@ -51,7 +52,14 @@ class Header extends Component {
           className="db hover-black bg-transparent pointer ba b--black-20 pl3 pr3 fr"
           type="submit"
           value="Cart"
-        />
+        />*/}
+        <div className="fl dt vh-100">
+          <div className="v-mid dtc">
+            <Link className="link dim black f3 " to="/">
+              <p className="banner-text h5">TESSA S. MCLEOD</p>
+            </Link>
+          </div>
+        </div>
         <Banner />
       </header>
     );
