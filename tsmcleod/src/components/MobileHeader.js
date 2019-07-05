@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import "../index.css";
 import { Link } from "react-router-dom";
+import img1 from "../images/menu-items/menuItem1.png";
+import img2 from "../images/menu-items/menuItem2.png";
+import img3 from "../images/menu-items/menuItem3.png";
+import img4 from "../images/menu-items/menuItem4.png";
+
+let linkNodes; //will contain LinkNode references after component mounts
 
 class MobileHeader extends Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: false };
-    // This binding is necessary to make `this` work in the callback
+    this.state = { isToggleOn: false, menuText: "Menu" };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -18,13 +23,20 @@ class MobileHeader extends Component {
       this.animateOut();
     }
   }
+  componentDidMount() {
+    linkNodes = document.querySelectorAll(".menu-items-hidden");
+  }
+
+  setMenuText = e => {
+    console.log(e);
+    this.setState({
+      menuText: { e }
+    });
+  };
 
   animateOut = () => {
-    var elem1 = document.querySelectorAll("#MenuPlaceholder");
-    elem1.className += " background-color: red";
-    var elem = document.querySelectorAll(".menu-items-hidden");
-    var i = 0;
-    for (let item of elem) {
+    let i = 0;
+    for (let item of linkNodes) {
       i++;
       item.className = "menu-item" + i + "-flushed ";
     }
@@ -34,12 +46,11 @@ class MobileHeader extends Component {
   };
 
   animateIn = () => {
-    var elem = document.querySelectorAll('a[class^="menu-item"]');
-    var i = 0;
-    for (let item of elem) {
+    let i = 0;
+    for (let item of linkNodes) {
       i++;
-      //item.className = "menu-item" + i + "-flushed-reverse";
-      item.className = "menu-items-hidden";
+      item.className = "menu-item" + i + "-flushed-reverse";
+      //item.className = "menu-items-hidden";
     }
     this.setState({
       isToggleOn: false
@@ -47,57 +58,47 @@ class MobileHeader extends Component {
   };
 
   render() {
+    var className = this.state.isToggleOn
+      ? "fl w-100 mb6 pb4 "
+      : "fl w-100 mb4 pb4";
     return (
-      <div id="MenuPlaceholder">
+      <div id="MenuPlaceholder" className={className}>
         <a
-          className="f6 link dim br2 ph3 pv2 mb2 dib white bg-black ma3 dn-ns fixed"
+          className="f6 link dim br2 ph3 pv2 mb2 dib white bg-black ma3 dn-ns absolute"
           id="Menu"
           href="#0"
           onClick={this.handleClick}
         >
-          Menu
+          {this.state.menuText}
         </a>
-        {/*<a className="menu-items-hidden" id="MenuItem1" href="#0">
-          About Me
-        </a>
-        <a className="menu-items-hidden" id="MenuItem2" href="#0">
-          Gallery
-        </a>
-        <a className="menu-items-hidden" id="MenuItem3" href="#0">
-          Shop
-        </a>
-        <a className="menu-items-hidden" id="MenuItem4" href="#0">
-          Contact Me
-        </a>*/}
-
         <Link
           className="menu-items-hidden link dim black f6 dib pv1 mh3"
           to="about"
           title="About"
         >
-          About Me
+          <img src={img1} className="mw3" alt="About Me" />
         </Link>
 
         <Link
-          className="menu-items-hidden link dim black f6 dib  pv1 mh3"
+          className="menu-items-hidden link dim black f6 dib pv1 mh3 "
           to="Gallery"
           title="Gallery"
         >
-          Gallery
-        </Link>
-        <Link
-          className="menu-items-hidden link dim black f6 dib  pv1 mh3"
-          to="Shop"
-          title="Store"
-        >
-          Shop
+          <img src={img2} className="mw3 menu-image" alt="Gallery" />
         </Link>
         <Link
           className="menu-items-hidden link dim black f6 dib pv1 mh3"
+          to="Shop"
+          title="Store"
+        >
+          <img src={img3} className="mw3" alt="Shop" />
+        </Link>
+        <Link
+          className="menu-items-hidden link dim black f6 dib pv1 mh3 dn-ns"
           to="Contact"
           title="Contact"
         >
-          Contact Me
+          <img src={img4} className="mw3" alt="Contact Me" />
         </Link>
       </div>
     );
