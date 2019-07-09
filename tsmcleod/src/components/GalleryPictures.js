@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ArtPrint from "./ArtPrint";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
+
 import img1 from "../images/furniture/pic1.png";
 import img2 from "../images/furniture/pic2.jpg";
 import img3 from "../images/furniture/pic3.jpg";
@@ -40,7 +41,7 @@ const images = [
   img11
 ];
 
-class CarouselDisplay extends Component {
+class GalleryPictures extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,6 +59,10 @@ class CarouselDisplay extends Component {
   }
 
   render() {
+    console.log(images[this.state.photoIndex]);
+    console.log(images[0]);
+    console.log(this.state.photoIndex);
+
     return (
       <div className="flex flex-wrap justify-center mh6-ns" id="fade">
         {this.state.isOpen && (
@@ -111,4 +116,4 @@ class CarouselDisplay extends Component {
   }
 }
 
-export default CarouselDisplay;
+export default GalleryPictures;

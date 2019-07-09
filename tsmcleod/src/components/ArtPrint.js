@@ -17,15 +17,19 @@ class ArtPrint extends Component {
   render() {
     const value = this.props.src;
     return (
-      <div className="w-25-ns mh3 ma3" onClick={this.handleClick}>
-        <a className="center mw5 tc black link " title="Art Print by TSMCLEOD">
+      <div className="w-25-ns mh3 pa2" onClick={this.handleClick}>
+        <a
+          className="center mw5 tc black link pointer "
+          title="Art Print by TSMCLEOD"
+          href="#0"
+        >
           <img
             className="db ba b--black-10 grow"
             alt="Art Print"
             title="Art Print 1"
             src={value}
           />
-          <dl className="f6 lh-copy">
+          <dl className="f6 lh-copy mv3">
             <dt className="clip">Title</dt>
             <dd className="ml0">Title</dd>
             <dt className="clip">Artist</dt>
