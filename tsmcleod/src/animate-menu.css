@@ -214,58 +214,86 @@
   mix-blend-mode: multiply;
 }
 @keyframes animated_menu_1 {
-  100% {
-    transform: translate(60px, -220px) rotate(60deg);
+  from {
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate(50%, -240%) rotate(60deg);
+    opacity: 1;
   }
 }
 
 @keyframes animated_menu_2 {
-  100% {
-    transform: translate(140px, -120px) rotate(60deg);
+  from {
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate(160%, -140%) rotate(60deg);
+    opacity: 1;
   }
 }
 @keyframes animated_menu_3 {
-  100% {
-    transform: translate(140px, 0px) rotate(60deg);
+  from {
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate(160%, 20%) rotate(60deg);
+    opacity: 1;
   }
 }
 @keyframes animated_menu_4 {
-  100% {
-    transform: translate(60px, 100px) rotate(60deg);
+  from {
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate(60%, 130%) rotate(60deg);
+    opacity: 1;
   }
 }
 
 @keyframes animated_menu_1_reverse {
   from {
-    transform: translate(60px, -220px) rotate(60deg);
+    transform: translate(50%, -240%) rotate(60deg);
+    opacity: 1;
   }
   to {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
   }
 }
 
 @keyframes animated_menu_2_reverse {
   from {
-    transform: translate(140px, -120px) rotate(60deg);
+    transform: translate(160%, -140%) rotate(60deg);
+    opacity: 1;
   }
   to {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
   }
 }
 @keyframes animated_menu_3_reverse {
   from {
-    transform: translate(140px, 0px) rotate(60deg);
+    transform: translate(160%, 20%) rotate(60deg);
+    opacity: 1;
   }
   to {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
   }
 }
 @keyframes animated_menu_4_reverse {
   from {
-    transform: translate(60px, 100px) rotate(60deg);
+    transform: translate(60%, 130%) rotate(60deg);
+    opacity: 1;
   }
   to {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0%, 0%) rotate(0deg);
+    opacity: 0;
   }
 }
 @keyframes animated_menu_hidden {
