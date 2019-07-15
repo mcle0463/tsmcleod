@@ -67,7 +67,7 @@ class Nav extends Component {
         </div>*/}
         <div className="fl dt vh-100">
           <div className="v-mid dtc">
-            <Link className="link dim black f3" to="/">
+            <Link className="link dim black f4" to="/">
               <p className="banner-text h5">TESSA S. MCLEOD</p>
             </Link>
           </div>
@@ -75,11 +75,11 @@ class Nav extends Component {
         </div>
         <div
           id="MenuPlaceHolder"
-          className="w-20 fl dt vh-100 absolute pl6 ml5"
+          className="w-20 fl dt vh-100 absolute pl6 ml4"
         >
           <div className="v-mid dtc">
             <a
-              className="f5 dim ph3 mb2 dib mid-grey bg-white no-underline absolute "
+              className="f6 dim ph3 mb2 dib mid-grey bg-none no-underline absolute "
               href="#0"
               onClick={this.handleClick}
             >
