@@ -6,9 +6,7 @@ var logger = require("morgan");
 
 var app = express();
 
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+let nodemailer = require("nodemailer");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -16,9 +14,43 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../tsmcleod/build")));
 
-//app.use("/", indexRouter);
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "../tsmcleod/build", "index.html"));
+});
+
+app.post("/", function(req, res) {
+  nodemailer.createTestAccount((err, account) => {
+    let transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: account.user, // generated ethereal user
+        pass: account.pass // generated ethereal password
+      }
+    });
+    let mailOptions = {
+      // should be replaced with real recipient's account
+      from: req.body.emailAddress, // sender address
+      to: "gremcleo@gmail.com", // replace with tsmcleod@live
+      subject:
+        "New Message from " + req.body.firstName + " on www.tsmcleod.com", // Subject line
+      text: req.body.comment, // plain text body
+      html: "<b>" + req.body.comment + "</b>" // html body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      let variable = req.body;
+      if (error) {
+        res.status(500).json({ error: error, req: variable });
+      } else {
+        console.log("Message sent: %s", info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        res.status(200).json({ info: info, req: variable });
+      }
+    });
+  });
 });
 
 // catch 404 and forward to error handler
@@ -34,7 +66,6 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
 });
 
 module.exports = app;
