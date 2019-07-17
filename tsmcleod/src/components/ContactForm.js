@@ -31,8 +31,11 @@ class ContactForm extends Component {
 
   onSubmit = e => {
     // get our form data out of state
-    e.preventDefault();
+    //debugger;
 
+    // console.log(SERVER_URL);
+    //e.preventDefault();
+    e.preventDefault();
     if (this.state.captchaVerify === "") {
       this.setState(
         {
@@ -65,7 +68,7 @@ class ContactForm extends Component {
       captchaVerify
     } = this.state;
     axios
-      .post(SERVER_URL, {
+      .post("http://localhost:3001", {
         firstName,
         lastName,
         emailAddress,
@@ -73,23 +76,37 @@ class ContactForm extends Component {
         captchaVerify
       })
       .then(res => {
-        debugger;
         //always need to lift state of email status
+        // console.log(res);
         this.setState({ emailStatus: res.status });
 
         if (res.status === 200) {
           //document.getElementById("create-course-form").reset();
+          //if message was sent retain its status but clear user information from status
+          document.getElementById("create-course-form").reset();
           this.setState({
+            emailStatus: res.status,
+            emailStatusMessage:
+              "Message delivered!\nA confirmation has been sent to " +
+              emailAddress,
             firstName: "",
             lastName: "",
             emailAddress: "",
             comment: "",
             captchaVerify: ""
           });
-        } else {
-          this.setState({ emailStatusMessage: res.data[0].message });
+          this.props.handleUpdate(this.state); //lift state regardless of status
         }
-        this.props.handleUpdate(this.state);
+      })
+      .catch(err => {
+        //if message was not sent retain its status and information so they can try again
+        this.setState({
+          emailStatus: err.response.status,
+          emailStatusMessage:
+            "Your message could not be sent, please see our contact page for another contact method!",
+          captchaVerify: ""
+        });
+        this.props.handleUpdate(this.state); //lift state regardless of status
       });
   };
 

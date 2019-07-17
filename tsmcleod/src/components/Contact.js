@@ -30,7 +30,7 @@ class Contact extends Component {
     //debugger;
   }
 
-  emailSent = () => toast.success("Message Sent!");
+  emailSent = () => toast.success(this.state.toastContent);
   emailFail = () => toast.error(this.state.toastContent);
 
   render() {
