@@ -67,8 +67,7 @@ app.post("/", function(req, res) {
   let variable = req.body;
 
   sgMail.setApiKey(
-    "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"
-  );
+""  );
   const clientMsg = {
     from: req.body.emailAddress, // sender address
     to: "gremcleo@gmail.com", // replace with tsmcleod@live
