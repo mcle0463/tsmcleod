@@ -30,17 +30,12 @@ class ContactForm extends Component {
   }
 
   onSubmit = e => {
-    // get our form data out of state
-    //debugger;
-
-    // console.log(SERVER_URL);
-    //e.preventDefault();
     e.preventDefault();
     if (this.state.captchaVerify === "") {
       this.setState(
         {
           emailStatus: 0,
-          emailStatusMessage: "Please verify that you are not a robot :)" //TODO: robot emoji
+          emailStatusMessage: "Please verify that you are not a robot :) 🤖" //robot emoji
         },
         function() {
           this.props.handleUpdate(this.state);
@@ -77,13 +72,12 @@ class ContactForm extends Component {
       })
       .then(res => {
         //always need to lift state of email status
-        // console.log(res);
         this.setState({ emailStatus: res.status });
 
         if (res.status === 200) {
           //document.getElementById("create-course-form").reset();
           //if message was sent retain its status but clear user information from status
-          document.getElementById("create-course-form").reset();
+          //document.getElementById("create-course-form").reset();
           this.setState({
             emailStatus: res.status,
             emailStatusMessage:
@@ -100,8 +94,9 @@ class ContactForm extends Component {
       })
       .catch(err => {
         //if message was not sent retain its status and information so they can try again
+        console.log(err);
         this.setState({
-          emailStatus: err.response.status,
+          emailStatus: err.status,
           emailStatusMessage:
             "Your message could not be sent, please see our contact page for another contact method!",
           captchaVerify: ""

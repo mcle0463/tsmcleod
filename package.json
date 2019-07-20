@@ -2,7 +2,8 @@
   "name": "tsmcleod",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd express-backend/ && npm start",
+    "start-prod": "cd express-backend/ && npm run start-prod",
+    "start-dev": "cd express-backend/ && npm run start-dev",
     "go-postbuild": "cd tsmcleod/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "build": "cd tsmcleod/ && npm run build"
   },

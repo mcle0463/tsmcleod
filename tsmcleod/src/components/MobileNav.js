@@ -28,7 +28,6 @@ class MobileNav extends Component {
   }
 
   setMenuText = param => e => {
-    console.log(param);
     this.setState({
       menuText: param
     });

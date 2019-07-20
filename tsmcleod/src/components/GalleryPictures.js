@@ -59,10 +59,6 @@ class GalleryPictures extends Component {
   }
 
   render() {
-    console.log(images[this.state.photoIndex]);
-    console.log(images[0]);
-    console.log(this.state.photoIndex);
-
     return (
       <div className="flex flex-wrap justify-center mh6-ns" id="fade">
         {this.state.isOpen && (
